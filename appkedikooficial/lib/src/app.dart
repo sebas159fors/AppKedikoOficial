@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'conection/server_controller.dart';
 import 'package:flutter_modulo1_fake_backend/user.dart';
 import 'package:appkedikooficial/pages/home_page.dart';
+import 'package:appkedikooficial/pages/register_page.dart';
 
 /*class MyApp extends StatelessWidget {
   @override
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
             //siempre tiene que haber un retorno en el witget BuildCOntext
             /*default:
               return LoginPage(_serverController, context);*/
+            case "/register":
+              return RegisterPage(_serverController, context);
           }
         });
       },
