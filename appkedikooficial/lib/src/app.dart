@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
       //establecer el tema
       theme: ThemeData(
           brightness: Brightness.light,
-          primaryColor: Colors.orange.shade800,
-          accentColor: Colors.orange.shade300),
+          primaryColor: Colors.orange[800],
+          accentColor: Colors.orange[300]),
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (BuildContext context) {
           switch (settings.name) {
