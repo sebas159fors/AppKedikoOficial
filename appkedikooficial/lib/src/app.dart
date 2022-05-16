@@ -1,5 +1,8 @@
 import 'package:appkedikooficial/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'conection/server_controller.dart';
+import 'package:flutter_modulo1_fake_backend/user.dart';
+import 'package:appkedikooficial/pages/home_page.dart';
 
 /*class MyApp extends StatelessWidget {
   @override
@@ -16,6 +19,8 @@ import 'package:flutter/material.dart';
             ))));
   }
 }*/
+//instanciamos serverController
+Servercontroller _serverController = Servercontroller();
 
 class MyApp extends StatelessWidget {
   @override
@@ -32,10 +37,14 @@ class MyApp extends StatelessWidget {
         return MaterialPageRoute(builder: (BuildContext context) {
           switch (settings.name) {
             case "/":
-              return LoginPage();
+              return LoginPage(_serverController, context);
+            case "/home":
+              //definir argumentos para el User
+              User userLogged = settings.arguments;
+              return HomePage(userLogged);
             //siempre tiene que haber un retorno en el witget BuildCOntext
-            default:
-              return LoginPage();
+            /*default:
+              return LoginPage(_serverController, context);*/
           }
         });
       },
