@@ -1,6 +1,8 @@
 import 'dart:ffi';
+import 'dart:io';
 import 'package:flutter_modulo1_fake_backend/user.dart';
 import 'package:flutter/material.dart';
+import 'package:appkedikooficial/src/components/image_picker_widget.dart';
 import 'package:appkedikooficial/src/conection/server_controller.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -19,11 +21,16 @@ class _RegisterPageState extends State<RegisterPage> {
   //iniciando el estado loading
   bool _loading = false;
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  GlobalKey<ScaffoldState> _scaffKey = GlobalKey<ScaffoldState>();
 
   String userName = "";
   String password = "";
+  Genrer genrer = Genrer.MALE;
 
   String _errorMessage = "";
+  // File imageFile = File("");
+  File imageFile;
+  bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,123 +42,181 @@ class _RegisterPageState extends State<RegisterPage> {
         key: _formkey,
         child: Stack(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              //para dar padding a la imagen
-              padding: EdgeInsets.symmetric(vertical: 60),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  //colores de la pantalla de logeo
-                  colors: [
-                    Colors.orange.shade300,
-                    Colors.orange.shade800,
-                  ],
-                ),
-              ),
-              child: Image.asset("assets/images/logo.png",
-                  width: 250, height: 250),
+            ImagePickerWidget(
+              imageFile: this.imageFile,
+              onImageSelected: (File file) {
+                setState(() {
+                  imageFile = file;
+                });
+              },
             ),
-            AppBar(),
+            SizedBox(
+                child: AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  //color del icono flecha para retroceder
+                  iconTheme: IconThemeData(color: Colors.black),
+                ),
+                height: kToolbarHeight + 25),
             //agergar tarjeta de logeo
-            Transform.translate(
-              offset: Offset(0, -40),
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Card(
-                    elevation: 2,
-                    //dar borde circular a la card
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    margin: const EdgeInsets.only(
-                        left: 20, right: 20, top: 260, bottom: 20),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 35, vertical: 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          TextFormField(
-                            decoration: InputDecoration(labelText: "Usuario:"),
-                            onSaved: (value) {
-                              userName = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return "Ingrese su usuario";
-                              }
-                            },
-                          ),
-                          //espacio entre los dos campos
-                          SizedBox(height: 40),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Contraseña:",
+            Center(
+              child: Transform.translate(
+                offset: Offset(0, -40),
+                child: Card(
+                  elevation: 2,
+                  //dar borde circular a la card
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  margin: const EdgeInsets.only(
+                      left: 20, right: 20, top: 260, bottom: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 35, vertical: 20),
+                    child: ListView(
+                      //mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: InputDecoration(labelText: "Usuario:"),
+                          onSaved: (value) {
+                            userName = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Ingrese su usuario";
+                            }
+                          },
+                        ),
+                        //espacio entre los dos campos
+                        SizedBox(height: 20),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Contraseña:",
+                            suffixIcon: IconButton(
+                              //ocultar o mostrar contraseña
+                              icon: Icon(showPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  showPassword = !showPassword;
+                                });
+                              },
                             ),
-                            //para ocultar contraseña
-                            obscureText: true,
-                            onSaved: (value) {
-                              password = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return "Por favor ingrese su Contraseña";
-                              }
-                            },
                           ),
-                          SizedBox(height: 40),
-                          // en el actual flutter ya no se usa raizedButoon
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(vertical: 25),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text("Iniciar Sesion"),
-                                if (_loading)
-                                  Container(
-                                    height: 20,
-                                    width: 20,
-                                    margin: const EdgeInsets.only(left: 20),
-                                    child: CircularProgressIndicator(
-                                      color: Colors.white,
-                                    ),
-                                  )
-                              ],
-                            ),
-                            onPressed: () => _login(context),
-                          ),
-                          //mensaje de error
-                          if (_errorMessage.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.all(8),
+                          //para ocultar contraseña
+                          obscureText: !showPassword,
+                          onSaved: (value) {
+                            password = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Este campo es obligatorio";
+                            }
+                          },
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 2,
                               child: Text(
-                                _errorMessage,
+                                "Género",
                                 style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[700]),
                               ),
                             ),
-                          SizedBox(height: 20),
-                          Row(
+                            Expanded(
+                              flex: 3,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  RadioListTile(
+                                    title: Text(
+                                      "Masculino",
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    value: Genrer.MALE,
+                                    groupValue: genrer,
+                                    onChanged: (value) {
+                                      setState(
+                                        () {
+                                          genrer = value;
+                                        },
+                                      );
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    title: Text(
+                                      "Femenino",
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    value: Genrer.FEMALE,
+                                    groupValue: genrer,
+                                    onChanged: (value) {
+                                      setState(
+                                        () {
+                                          genrer = value;
+                                        },
+                                      );
+                                    },
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        // en el actual flutter ya no se usa raizedButoon
+                        SizedBox(height: 20),
+
+                        ElevatedButton(
+                          onPressed: () => _register(context),
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
-                                '¿No estas registrado?',
-                              ),
-                              TextButton(
-                                /*textColor:Theme.of(context).primaryColor,*/
-                                child: Text("Registrarse"),
-                                onPressed: () {
-                                  _showRegister(context);
-                                },
-                              ),
+                              Text("Registrar"),
+                              if (_loading)
+                                Container(
+                                  height: 20,
+                                  width: 20,
+                                  margin: const EdgeInsets.only(left: 20),
+                                  child: CircularProgressIndicator(),
+                                )
                             ],
-                          )
-                        ],
-                      ),
+                          ),
+                        ),
+
+                        //mensaje de error
+                        if (_errorMessage.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              _errorMessage,
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        SizedBox(height: 20),
+
+                        //mensaje de error
+                        if (_errorMessage.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              _errorMessage,
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        SizedBox(height: 20),
+                      ],
                     ),
                   ),
                 ),
@@ -164,39 +229,54 @@ class _RegisterPageState extends State<RegisterPage> {
   }
   //creando el metodo _login
 
-  void _login(BuildContext context) async {
-    if (!_loading) {
-      if (_formkey.currentState.validate()) {
-        _formkey.currentState.save();
+  _register(BuildContext context) async {
+    if (_formkey.currentState.validate()) {
+      _formkey.currentState.save();
+      if (imageFile == null) {
+        showSnackBar(context, "Seleccione una imágen por favor", Colors.orange);
+        return;
+      }
+      User user = User(
+          genrer: this.genrer,
+          nickname: this.userName,
+          password: this.password,
+          photo: this.imageFile);
 
-        setState(() {
-          _loading = true;
-          _errorMessage = " ";
-        });
-        User user = await widget.serverController.login(userName, password);
-        if (user != null) {
-          //los argumentos van a llegar por la clase y el constructor
-          Navigator.of(context).pushReplacementNamed("/home", arguments: user);
-        } else {
-          setState(() {
-            //configurando el mensaje de error y el loading
-            _errorMessage = "Usuario o contraseña incorrecto";
-            _loading = false;
-          });
-        }
+      final state = await widget.serverController.addUser(user);
+      if (state == false) {
+        showSnackBar(context, "No se pudo guardar", Colors.orange);
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Información"),
+              content: Text("Su usuario ha sido registrado exitosamente"),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            );
+          },
+        );
       }
     }
   }
 
-  void _showRegister(BuildContext context) {
-    Navigator.of(context).pushNamed(
-      '/register',
+  void showSnackBar(BuildContext context, String title, Color backcolor) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+        backgroundColor: backcolor,
+      ),
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    widget.serverController.init(widget.context);
   }
 }
