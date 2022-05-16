@@ -164,19 +164,24 @@ class _LoginPageState extends State<LoginPage> {
 
   void _login(BuildContext context) async {
     if (!_loading) {
-      setState(() {
-        _loading = true;
-      });
-      User user = await widget.serverController.login(userName, password);
-      if (user != null) {
-        //los argumentos van a llegar por la clase y el constructor
-        Navigator.of(context).pushReplacementNamed("/home", arguments: user);
-      } else {
+      if (_formkey.currentState.validate()) {
+        _formkey.currentState.save();
+
         setState(() {
-          //configurando el mensaje de error y el loading
-          _errorMessage = "Usuario o contraseña incorrecto";
-          _loading = false;
+          _loading = true;
+          _errorMessage = " ";
         });
+        User user = await widget.serverController.login(userName, password);
+        if (user != null) {
+          //los argumentos van a llegar por la clase y el constructor
+          Navigator.of(context).pushReplacementNamed("/home", arguments: user);
+        } else {
+          setState(() {
+            //configurando el mensaje de error y el loading
+            _errorMessage = "Usuario o contraseña incorrecto";
+            _loading = false;
+          });
+        }
       }
     }
   }
