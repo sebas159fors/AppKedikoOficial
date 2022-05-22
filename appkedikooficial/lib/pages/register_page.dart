@@ -42,14 +42,14 @@ class _RegisterPageState extends State<RegisterPage> {
         key: _formkey,
         child: Stack(
           children: <Widget>[
-            ImagePickerWidget(
+            /* ImagePickerWidget(
               imageFile: this.imageFile,
               onImageSelected: (File file) {
                 setState(() {
                   imageFile = file;
                 });
               },
-            ),
+            ),*/
             SizedBox(
                 child: AppBar(
                   elevation: 0,
