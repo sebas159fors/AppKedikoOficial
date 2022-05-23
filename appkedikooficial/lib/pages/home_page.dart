@@ -18,6 +18,7 @@ class _MenuInicioeState extends State<MenuInicio> {
   int index = 0;
 
   final screens = [
+    //se pueden agregar mas opciones
     RecetasInicio(),
     RecetasFavoritas(),
     VideosDeRecetas(),
@@ -26,11 +27,26 @@ class _MenuInicioeState extends State<MenuInicio> {
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
-      Icon(Icons.home),
-      Icon(Icons.favorite),
-      Icon(Icons.movie),
+      //se pueden agregar mas iconos
+      Icon(
+        Icons.home,
+        //tamaño de los iconos
+        size: 30,
+      ),
+      Icon(
+        Icons.favorite,
+        size: 30,
+      ),
+      Icon(
+        Icons.movie,
+        size: 30,
+      ),
     ];
     return Scaffold(
+      //menu drawer
+      drawer: DrawerRecetas(),
+      //extender mas el body
+      extendBody: true,
       appBar: AppBar(
         title: Text('App Kediko'),
         flexibleSpace: Container(
@@ -45,6 +61,29 @@ class _MenuInicioeState extends State<MenuInicio> {
         ),
         //para que el titulo de las recetas aparesca centrado
         centerTitle: true,
+      ),
+      body: screens[index],
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        child: CurvedNavigationBar(
+          key: navigationkey,
+          //tamaño de la barra inferior
+          height: 60,
+          //dar animacion especial a los iconos
+          animationCurve: Curves.easeInOut,
+          //color de la barra inferior
+          color: Colors.orange.shade400,
+          //color de los iconos (borde)
+          buttonBackgroundColor: Colors.orange.shade400,
+          //duracion de la animacion de pase a otra ventana
+          animationDuration: Duration(milliseconds: 400),
+          index: index,
+          items: items,
+          //para llamar al ontap y nos lleve de una pagina a otra
+          onTap: (index) => setState(() => this.index = index),
+        ),
       ),
     );
   }
