@@ -6,9 +6,9 @@ class RecetasFavoritas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Recetas Favoritas',
+      body: Center(
+        child: Text(
+          "Recetas Favoritas",
           style: TextStyle(
             fontSize: 25,
           ),
