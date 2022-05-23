@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             case "/home":
               //definir argumentos para el User
               User userLogged = settings.arguments;
-              return HomePage(userLogged);
+              return MenuInicio(userLogged);
             //siempre tiene que haber un retorno en el witget BuildCOntext
             /*default:
               return LoginPage(_serverController, context);*/
