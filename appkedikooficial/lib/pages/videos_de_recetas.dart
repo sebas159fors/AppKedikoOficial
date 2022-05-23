@@ -6,9 +6,9 @@ class VideosDeRecetas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Videos de Recetas',
+      body: Center(
+        child: Text(
+          "Videos de Recetas",
           style: TextStyle(
             fontSize: 25,
           ),
