@@ -2,7 +2,7 @@ import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter_modulo1_fake_backend/user.dart';
 import 'package:flutter/material.dart';
-import 'package:appkedikooficial/src/components/image_picker_widget.dart';
+//import 'package:appkedikooficial/src/components/image_picker_widget.dart';
 import 'package:appkedikooficial/src/conection/server_controller.dart';
 
 class RegisterPage extends StatefulWidget {
