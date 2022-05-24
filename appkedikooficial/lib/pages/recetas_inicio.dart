@@ -33,7 +33,7 @@ class RecetasInicio extends StatelessWidget {
         //llamando al carouselImages
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             CarouselSlider.builder(
@@ -54,7 +54,7 @@ class RecetasInicio extends StatelessWidget {
                 enlargeCenterPage: true,
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 15, top: 15),
               child: Center(
                 child: Text(
@@ -114,7 +114,7 @@ class RecetasInicio extends StatelessWidget {
 
   //implementando builImage
   Widget builImage(String cardImage, int index) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         child: SizedBox(
           width: 400.0,
           child: ClipRRect(
@@ -140,7 +140,7 @@ class CardImagesRecetas extends StatelessWidget {
       color: Colors.orangeAccent,
       //parametros del borde de la caja o card
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Colors.white, width: 1),
+        side: const BorderSide(color: Colors.white, width: 1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: SizedBox(
@@ -148,7 +148,7 @@ class CardImagesRecetas extends StatelessWidget {
         width: 170,
         // height: 100,
         child: Column(
-          children: <Widget>[
+          children: const <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15),
