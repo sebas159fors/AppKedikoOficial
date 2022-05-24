@@ -53,9 +53,12 @@ class _MenuInicioeState extends State<MenuInicio> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.orange.shade200,
-                Colors.indigoAccent,
+                //colores del app bar o encabezado
+                Colors.orange.shade400,
+                Colors.orangeAccent,
               ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
         ),
@@ -77,6 +80,8 @@ class _MenuInicioeState extends State<MenuInicio> {
           color: Colors.orange.shade400,
           //color de los iconos (borde)
           buttonBackgroundColor: Colors.orange.shade400,
+          //para que el fondo del boton sea transparente
+          backgroundColor: Colors.transparent,
           //duracion de la animacion de pase a otra ventana
           animationDuration: Duration(milliseconds: 400),
           index: index,
