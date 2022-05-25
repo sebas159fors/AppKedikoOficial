@@ -1,12 +1,13 @@
+import 'package:appkedikooficial/API/Api_listaReceta.dart';
 import 'package:appkedikooficial/pages/paginas_screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modulo1_fake_backend/models.dart';
 
 class MenuInicio extends StatefulWidget {
-  final User loggedUser;
+  // final User loggedUser;
   //para que el usuario se logee antes de ingresar al menu inicio
-  const MenuInicio(this.loggedUser, {Key key}) : super(key: key);
+  const MenuInicio(/*this.loggedUser,*/ {Key key}) : super(key: key);
 
   @override
   State<MenuInicio> createState() => _MenuInicioeState();
@@ -24,20 +25,28 @@ class _MenuInicioeState extends State<MenuInicio> {
     VideosDeRecetas(),
   ];
 
+  /* int _selectDrawerItem = 0;
+  _getDrawerItemWidget(int pos) {
+    switch (pos) {
+      case 0:
+        return ApiListaReceta();
+    }
+  }*/
+
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
       //se pueden agregar mas iconos
-      Icon(
+      const Icon(
         Icons.home,
         //tamaño de los iconos
         size: 30,
       ),
-      Icon(
+      const Icon(
         Icons.favorite,
         size: 30,
       ),
-      Icon(
+      const Icon(
         Icons.movie,
         size: 30,
       ),
@@ -45,6 +54,8 @@ class _MenuInicioeState extends State<MenuInicio> {
     return Scaffold(
       //menu drawer
       drawer: DrawerRecetas(),
+
+      // body: _getDrawerItemWidget(_selectDrawerItem),
       //extender mas el body
       extendBody: true,
       appBar: AppBar(
