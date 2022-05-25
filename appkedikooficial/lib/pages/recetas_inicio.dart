@@ -1,3 +1,4 @@
+import 'package:appkedikooficial/API/Api_listaReceta.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -74,8 +75,14 @@ class RecetasInicio extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    CardImagesRecetas(),
-                    CardImagesRecetas(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return ApiListaReceta();
+                        }));
+                      },
+                      child: const CardImagesRecetas(),
+                    ),
                   ],
                 ),
               ),
