@@ -75,6 +75,7 @@ class RecetasInicio extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
+                    //insertar el api a la lista de recetas
                     GestureDetector(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
