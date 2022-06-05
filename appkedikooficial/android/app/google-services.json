@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1002528741789",
+    "project_id": "ke-diko",
+    "storage_bucket": "ke-diko.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002528741789:android:d0502260c95740053ef774",
+        "android_client_info": {
+          "package_name": "com.example.appkedikooficial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002528741789-kaa4a9p438ubpfm8tid46orvn6ig37k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfSKu_pH4Gg6I0DBgorqFAObbf1jMQ8IM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002528741789-kaa4a9p438ubpfm8tid46orvn6ig37k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
