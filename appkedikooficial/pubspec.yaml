@@ -36,11 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core:
   firebase_auth: ^3.0.1
+  google_sign_in: ^5.0.5  
   firebase_database:
   cloud_firestore:    
   flutter_modulo1_fake_backend:
     path: ../flutter_modulo1_fake_backend
-  image_picker: ^0.5.0+9
+  #image_picker: ^0.5.0+9
   flutter_launcher_icons: ^0.9.2
   http: ^0.13.1     
 
@@ -53,7 +54,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
