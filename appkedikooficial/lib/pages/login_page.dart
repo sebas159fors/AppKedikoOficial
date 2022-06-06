@@ -47,8 +47,9 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              child: Image.asset("assets/images/logo.png",
-                  width: 250, height: 250),
+              //imagen de kediko falla en el celular
+              /*child: Image.asset("assets/images/logo.png",
+                  width: 250, height: 250),*/
             ),
             //agergar tarjeta de logeo
             Transform.translate(
