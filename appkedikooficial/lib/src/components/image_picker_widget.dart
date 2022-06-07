@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
+/*
 typedef OnImageSelected = Function(File imageFile);
 
 class ImagePickerWidget extends StatelessWidget {
@@ -71,3 +71,4 @@ class ImagePickerWidget extends StatelessWidget {
     this.onImageSelected(image);
   }
 }
+*/
