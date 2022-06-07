@@ -2,7 +2,9 @@ import 'package:appkedikooficial/API/Api_listaReceta.dart';
 import 'package:appkedikooficial/pages/paginas_screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modulo1_fake_backend/models.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class MenuInicio extends StatefulWidget {
   // final User loggedUser;
@@ -15,6 +17,10 @@ class MenuInicio extends StatefulWidget {
 
 class _MenuInicioeState extends State<MenuInicio> {
   final navigationkey = GlobalKey<CurvedNavigationBarState>();
+  final User usuario = FirebaseAuth.instance.currentUser;
+  String email = "";
+  //si usuario es distinto que null
+  // if (usuario != null) email = usuario.email;
   //iniciar en la pagina cero
   int index = 0;
 
@@ -54,7 +60,6 @@ class _MenuInicioeState extends State<MenuInicio> {
     return Scaffold(
       //menu drawer
       drawer: DrawerRecetas(),
-
       // body: _getDrawerItemWidget(_selectDrawerItem),
       //extender mas el body
       extendBody: true,
@@ -75,6 +80,26 @@ class _MenuInicioeState extends State<MenuInicio> {
         ),
         //para que el titulo de las recetas aparesca centrado
         centerTitle: true,
+
+        //Boton de logout esta para colocar a la izquierda
+        /* leading: new Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              child: TextButton.icon(
+                onPressed: () {
+                  _salir(context);
+                },
+                label: Text('Salir',
+                    style: TextStyle(fontSize: 20, color: Colors.white)),
+                icon: Icon(
+                  Icons.logout,
+                  color: Colors.white70,
+                ),
+              ),
+            ),
+          ],
+        ),*/
       ),
       body: screens[index],
       bottomNavigationBar: Theme(
@@ -102,5 +127,10 @@ class _MenuInicioeState extends State<MenuInicio> {
         ),
       ),
     );
+  }
+
+  void _salir(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pop(context);
   }
 }
