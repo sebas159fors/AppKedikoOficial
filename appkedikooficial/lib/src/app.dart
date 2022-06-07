@@ -1,4 +1,5 @@
 //import 'package:appkedikooficial/pages/login_page.dart';
+import 'package:appkedikooficial/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
@@ -408,8 +409,10 @@ class _LoginState extends State<Login> {
             password: _contrasenaController.text.trim());
         //si sigue la ejecucion se pasa a otra pantalla
         // en este caso pasa a la pantalla de inicio.dart
+
+        //se cambia Home por MenuInicio
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => new Home()));
+            context, MaterialPageRoute(builder: (context) => new MenuInicio()));
         setState(() {
           _cambiarEstadoIndicadorProgreso();
         });
@@ -449,7 +452,7 @@ class _LoginState extends State<Login> {
       //se elimino ! de currentSate
       _formKey.currentState.save();
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => new Home()));
+          context, MaterialPageRoute(builder: (context) => new MenuInicio()));
     } catch (e) {
       mostrarSnackBar("Lo sentimos, se produjo un error", context);
     } finally {
