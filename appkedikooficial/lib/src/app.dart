@@ -1,5 +1,9 @@
 //import 'package:appkedikooficial/pages/login_page.dart';
-import 'package:appkedikooficial/pages/home_page.dart';
+//antiguo inicio
+//import 'package:appkedikooficial/pages/home_page.dart';
+import 'package:appkedikooficial/pages/Pagina_inicio.dart';
+import 'package:appkedikooficial/pages/categorias.dart';
+import 'package:appkedikooficial/pages/detalle_receta.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
@@ -90,11 +94,26 @@ class MainPageState extends State<MainPage> {
     });
   }
 
+//material app de login
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Login());
+    return MaterialApp(
+      home: Login(),
+      //parte copiada
+      debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        // '/': (BuildContext context) => MainPage(),
+        //se cambio a inicio por / para que pueda salir categoria
+        // se comento la linea 108 ya que era redundante y salia error
+        // '/': (BuildContext context) => MenuInicio(),
+        'categoria': (BuildContext context) => CategoriaPage(),
+        'detalle': (BuildContext context) => DetallesPage()
+      },
+    );
   }
 }
+
+//mate app
 
 class Login extends StatefulWidget {
   @override
