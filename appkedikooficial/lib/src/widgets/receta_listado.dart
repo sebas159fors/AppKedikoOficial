@@ -1,9 +1,10 @@
 //widgets
 import 'package:appkedikooficial/src/widgets/texto_receta.dart';
+import 'package:appkedikooficial/styles/styles.dart';
 
 import 'package:flutter/material.dart';
 
-Widget recetasListado(BuildContext context) {
+Widget recetasListadoWig(BuildContext context) {
   return Column(
     children: <Widget>[
       SizedBox(
@@ -21,7 +22,7 @@ Widget recetasListado(BuildContext context) {
           height: 180.0,
         ),
       ),
-      textoReceta()
+      textoReceta(titlesRecipeStyle)
     ],
   );
 
