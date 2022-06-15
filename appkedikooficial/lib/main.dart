@@ -1,6 +1,3 @@
-import 'package:appkedikooficial/pages/Pagina_inicio.dart';
-import 'package:appkedikooficial/pages/categorias.dart';
-import 'package:appkedikooficial/pages/detalle_receta.dart';
 import 'package:appkedikooficial/src/app.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,6 +11,7 @@ void main() async {
   runApp(MainPage());
 }
 
+/*
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,3 +27,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+*/
