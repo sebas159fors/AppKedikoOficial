@@ -37,3 +37,17 @@ final descripcionRecipeStyle = TextStyle(
     fontWeight: FontWeight.bold,
     color: colorDescripcionRecetas,
     fontSize: 14.0);
+
+//estilo de las letras de la receta de detalle
+final titlesRecipeStyleDetalle = TextStyle(
+    fontFamily: 'PlayfairDisplay-Bold',
+    fontWeight: FontWeight.bold,
+    color: colorTitle,
+    fontSize: 22.0);
+
+//estilo del Menu Lateral
+final estiloTextoMenuLateral = TextStyle(
+    fontFamily: 'PlayfairDisplay-Bold',
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+    fontSize: 28.0);
