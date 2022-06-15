@@ -2,7 +2,7 @@
 import 'package:appkedikooficial/styles/styles.dart';
 import 'package:flutter/material.dart';
 
-Widget textoReceta() {
+Widget textoReceta(TextStyle estilos) {
   return Column(
     children: <Widget>[
       Container(
@@ -16,7 +16,7 @@ Widget textoReceta() {
             Text(
               'Ensalada de frutas',
               textAlign: TextAlign.left,
-              style: titlesRecipeStyle,
+              style: estilos,
             ),
             //descropcion de la receta
             Text(
