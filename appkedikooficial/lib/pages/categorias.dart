@@ -17,10 +17,10 @@ class CategoriaPage extends StatelessWidget {
             delegate: SliverChildListDelegate([
               titles('Comida Vegetariana', titlesStyleCategoria),
               // swiperPopulares(),
-              recetasListado(context),
-              recetasListado(context),
-              recetasListado(context),
-              recetasListado(context)
+              // recetasListadoWig(context),
+              // recetasListadoWig(context),
+              // recetasListadoWig(context),
+              // recetasListadoWig(context)
             ]),
           )
         ],
