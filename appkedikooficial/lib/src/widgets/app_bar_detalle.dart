@@ -1,7 +1,8 @@
 import 'package:appkedikooficial/styles/styles.dart';
 import 'package:flutter/material.dart';
 
-Widget appBarDetalle(String title) {
+//pasando el argumento foto al detalle receta
+Widget appBarDetalle(String foto) {
   return SliverAppBar(
     backgroundColor: colorBG,
     //para expandir en el encabezado
@@ -14,10 +15,8 @@ Widget appBarDetalle(String title) {
     //flexible da un espacio adicional para poder cualquier cosa ejm fotos
     flexibleSpace: FlexibleSpaceBar(
       background: FadeInImage(
-        placeholder: NetworkImage(
-            "https://firebasestorage.googleapis.com/v0/b/ke-diko.appspot.com/o/recetas%20vegetarianas%2Fensalada%20de%20verduras.jpg?alt=media&token=312832d2-6a0c-40e5-b6ed-1f2c3ccb2a33"),
-        image: NetworkImage(
-            "https://firebasestorage.googleapis.com/v0/b/ke-diko.appspot.com/o/recetas%20vegetarianas%2Fensalada%20de%20verduras.jpg?alt=media&token=312832d2-6a0c-40e5-b6ed-1f2c3ccb2a33"),
+        placeholder: NetworkImage(foto),
+        image: NetworkImage(foto),
         fadeInDuration: Duration(milliseconds: 150),
         fit: BoxFit.cover,
       ),
