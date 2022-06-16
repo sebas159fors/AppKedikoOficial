@@ -37,7 +37,7 @@ class MenuInicio extends StatelessWidget {
                 children: <Widget>[
                   swiperPopulares(),
                   titles('Categorías', titlesStyle),
-                  sliderCategorias(),
+                  SliderCategorias(),
                   titles('Recetas Populares', titlesStyle),
                   //para darle un poco de separacion a recetas populares
                   //recetasListado(context),
