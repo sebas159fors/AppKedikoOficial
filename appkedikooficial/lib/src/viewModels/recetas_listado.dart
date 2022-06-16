@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 //Estilos
 import 'package:appkedikooficial/styles/styles.dart';
-import 'package:flutter/material.dart';
 
 //recibimos los datos de provider y aqui los ordenamos
 List<Widget> recetasListado(
@@ -26,7 +26,8 @@ Widget _cuerpoRecetaListado(
       ),
       GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, 'detalle');
+          //pasando los argumentos de receta
+          Navigator.pushNamed(context, 'detalle', arguments: receta);
         },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
