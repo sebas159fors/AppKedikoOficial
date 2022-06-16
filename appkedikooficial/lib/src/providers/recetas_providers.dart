@@ -11,7 +11,7 @@ class _RecetasProvider {
 
 //creando la instancia de firestore
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-
+  //cargando los datos map de las recetas en firebase
   Future<List<dynamic>> cargarRecetas() async {
     final List<dynamic> recetasTempList = [];
 
@@ -29,6 +29,45 @@ class _RecetasProvider {
             });
     recetas = recetasTempList;
     return recetas;
+  }
+
+  //cargando las categorias desde la firebase
+  Future<List<dynamic>> cargarCategorias() async {
+    final List<dynamic> categoriasTempList = [];
+
+    await firestore
+        .collection("categorias")
+        .get()
+        .then((QuerySnapshot querySnapshot) => {
+              //llamar a cada una de las recetas que hay en la Firebase
+              querySnapshot.docs.forEach((doc) {
+                //entra string por un salo y sale dinamico por el otro
+                Map<String, dynamic> categoriasMap = doc.data();
+                //añadiendo los Map
+                categoriasTempList.add(categoriasMap);
+              })
+            });
+    categorias = categoriasTempList;
+    return categorias;
+  }
+
+  Future<List<dynamic>> cargarRecetasCategorias(String categoria) async {
+    final List<dynamic> categoriaTempList = [];
+
+    await firestore
+        .collection(categoria)
+        .get()
+        .then((QuerySnapshot querySnapshot) => {
+              //llamar a cada una de las recetas que hay en la Firebase
+              querySnapshot.docs.forEach((doc) {
+                //entra string por un salo y sale dinamico por el otro
+                Map<String, dynamic> categoriaMap = doc.data();
+                //añadiendo los Map
+                categoriaTempList.add(categoriaMap);
+              })
+            });
+    recetasCategoria = categoriaTempList;
+    return recetasCategoria;
   }
 }
 
