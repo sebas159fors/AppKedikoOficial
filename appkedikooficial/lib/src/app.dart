@@ -155,7 +155,7 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.only(top: 120.0, bottom: 0.0),
                 child: Text(
-                  'Firebase Auth',
+                  'Kediko App',
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.white70,
