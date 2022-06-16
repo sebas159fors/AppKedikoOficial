@@ -32,7 +32,7 @@ Widget _imagen(Map<String, dynamic> ingrediente) {
         Container(
           alignment: Alignment.bottomLeft,
           padding: EdgeInsets.all(20.0),
-          child: Text(ingrediente['ingrediente'],
+          child: Text(ingrediente["ingrediente"],
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
