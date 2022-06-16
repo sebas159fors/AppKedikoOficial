@@ -1,3 +1,4 @@
+import 'package:appkedikooficial/src/viewModels/ingredientes_listado.dart';
 import 'package:flutter/material.dart';
 
 //Swiper
@@ -5,7 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 
 final controller = PageController(initialPage: 1, viewportFraction: 0.3);
 
-Widget sliderIngredientes() {
+Widget SliderIngredientes(List<dynamic> ingredientes) {
   return Container(
     height: 120.0,
     padding: EdgeInsets.only(left: 5.0),
@@ -15,17 +16,13 @@ Widget sliderIngredientes() {
         itemBuilder: (BuildContext context, int index) {
           return PageView(
             controller: controller,
-            children: [
-              _imagen(),
-              _imagen(),
-              _imagen(),
-              _imagen(),
-            ],
+            children: ingredientesListado(ingredientes),
           );
         }),
   );
 }
 
+/*
 Widget _imagen() {
   return Center(
     child: Image(
@@ -35,3 +32,4 @@ Widget _imagen() {
     ),
   );
 }
+*/
