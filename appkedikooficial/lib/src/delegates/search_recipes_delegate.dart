@@ -40,6 +40,7 @@ class RecetasSearchDelegate extends SearchDelegate {
             SliverList(
               delegate: SliverChildListDelegate([
                 Column(
+                  //llamamos todos los parametros del buscador
                   children:
                       recetasListadoBuscador(context, recetas, recetaBuscada),
                 )
