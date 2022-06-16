@@ -53,6 +53,7 @@ Widget _cuerpoRecetaListado(
               textAlign: TextAlign.left,
               style: estilos,
             ),
+
             //descropcion de la receta
             Text(
               receta['descripcion'],
