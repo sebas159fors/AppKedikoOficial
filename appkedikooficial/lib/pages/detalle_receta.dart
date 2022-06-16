@@ -27,11 +27,11 @@ class DetallesPage extends StatelessWidget {
                     ),
 
                 // se comento ingredientes ya que sale un error en el app que no cargan los ingredientes de firebase
-                // titles('Ingredientes', titlesStyle),
+                titles('Ingredientes', titlesStyle),
                 SizedBox(
                   height: 20.0,
                 ),
-                //SliderIngredientes(receta['ingredientes']),
+                SliderIngredientes(receta["ingredientes"]),
                 SizedBox(
                   height: 15.0,
                 ),
