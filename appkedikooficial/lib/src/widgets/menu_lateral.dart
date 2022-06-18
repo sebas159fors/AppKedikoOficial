@@ -34,6 +34,13 @@ Drawer menuLateral(context) {
               Navigator.pushNamed(context, 'categoria');
             },
           ),
+          ListTile(
+            leading: Icon(Icons.api, color: colorIconos),
+            title: Text('Api Recetas Internacionales'),
+            onTap: () {
+              Navigator.pushNamed(context, 'API');
+            },
+          ),
           //se pueden añadir mas opciones siempre especificando la ruta en routes
         ],
       ),
