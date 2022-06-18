@@ -149,7 +149,7 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.lightBlue[900],
+      backgroundColor: Colors.orange.shade400,
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -161,7 +161,7 @@ class _LoginState extends State<Login> {
                   'Kediko App',
                   style: TextStyle(
                     fontSize: 40,
-                    color: Colors.white70,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
