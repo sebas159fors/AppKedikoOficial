@@ -1,3 +1,4 @@
+import 'package:appkedikooficial/pages/Pagina_inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -311,7 +312,9 @@ class PaginaRegistroState extends State<PaginaRegistro> {
 
           //mandar al usuario a la pagina de INICIO
           context,
-          MaterialPageRoute(builder: (context) => new Home()));
+
+          //se cambio Home por MenuInicio
+          MaterialPageRoute(builder: (context) => new MenuInicio()));
     } on FirebaseAuthException catch (e) {
       if (e.code == "weak-password")
         mostrarSnackBar("Contraseña demasidado débil", context);
