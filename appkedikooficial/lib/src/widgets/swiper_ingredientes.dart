@@ -21,15 +21,3 @@ Widget SliderIngredientes(List<dynamic> ingredientes) {
         }),
   );
 }
-
-/*
-Widget _imagen() {
-  return Center(
-    child: Image(
-      alignment: Alignment.topLeft,
-      image: NetworkImage(
-          "https://firebasestorage.googleapis.com/v0/b/ke-diko.appspot.com/o/Ingredientes%2Fingre1.png?alt=media&token=736d4b8f-1185-4789-ad19-80392cea4a16"),
-    ),
-  );
-}
-*/
