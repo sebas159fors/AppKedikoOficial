@@ -25,6 +25,4 @@ Widget recetasListadoWig(BuildContext context) {
       textoReceta(titlesRecipeStyle)
     ],
   );
-
-  //clase
 }
