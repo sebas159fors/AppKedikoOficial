@@ -10,21 +10,3 @@ void main() async {
   //se cambiara a MyApp para verificar las rutas
   runApp(MainPage());
 }
-
-/*
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        // '/': (BuildContext context) => MainPage(),
-        //se cambio a inicio por / para que pueda salir categoria
-        '/': (BuildContext context) => MenuInicio(),
-        'categoria': (BuildContext context) => CategoriaPage(),
-        'detalle': (BuildContext context) => DetallesPage()
-      },
-    );
-  }
-}
-*/
