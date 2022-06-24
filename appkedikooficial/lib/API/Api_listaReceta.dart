@@ -1,8 +1,7 @@
-import 'package:appkedikooficial/drawer/drawer.dart';
 import 'package:appkedikooficial/models/recipe.api.dart';
 import 'package:appkedikooficial/models/recipe.dart';
 import 'package:appkedikooficial/views/widgets/recipe_card.dart';
-import 'package:appkedikooficial/pages/paginas_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class ApiListaReceta extends StatefulWidget {
