@@ -7,13 +7,5 @@ Widget appBarCategoria(String title) {
       floating: false,
       pinned: true,
       elevation: 0.0,
-      /*title: Text(
-        title,
-        style: TextStyle(
-          fontFamily: 'PlayfairDisplay-Bold',
-          fontWeight: FontWeight.bold,
-          color: colorTitle,
-        ),
-      ),*/
       iconTheme: IconThemeData(color: colorIconosAppBar));
 }
