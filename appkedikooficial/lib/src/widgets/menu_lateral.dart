@@ -22,16 +22,9 @@ Drawer menuLateral(context) {
           ),
           ListTile(
             leading: Icon(Icons.fastfood, color: colorIconos),
-            title: Text('Categorías'),
+            title: Text('Pasos para usar el App'),
             onTap: () {
-              Navigator.pushNamed(context, 'categoria');
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.help, color: colorIconos),
-            title: Text('Ayuda'),
-            onTap: () {
-              Navigator.pushNamed(context, 'categoria');
+              Navigator.pushNamed(context, 'Pasos');
             },
           ),
           ListTile(
@@ -40,6 +33,13 @@ Drawer menuLateral(context) {
             onTap: () {
               Navigator.pushNamed(context, 'API');
             },
+          ),
+          AboutListTile(
+            child: Text("Información del APP"),
+            applicationIcon: Icon(Icons.favorite, color: colorIconos),
+            applicationVersion: "v 1.0.1",
+            applicationName: "App Kediko",
+            icon: Icon(Icons.info, color: colorIconos),
           ),
           //se pueden añadir mas opciones siempre especificando la ruta en routes
         ],
