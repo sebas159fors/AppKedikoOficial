@@ -3,6 +3,7 @@
 //import 'package:appkedikooficial/pages/home_page.dart';
 import 'package:appkedikooficial/API/Api_listaReceta.dart';
 import 'package:appkedikooficial/pages/Pagina_inicio.dart';
+import 'package:appkedikooficial/pages/Pasos_app.dart';
 import 'package:appkedikooficial/pages/categorias.dart';
 import 'package:appkedikooficial/pages/detalle_receta.dart';
 import 'package:flutter/material.dart';
@@ -107,7 +108,7 @@ class MainPageState extends State<MainPage> {
         //se cambio a inicio por / para que pueda salir categoria
         // se comento la linea 108 ya que era redundante y salia error
         // '/': (BuildContext context) => MenuInicio(),
-        'categoria': (BuildContext context) => CategoriaPage(),
+        'Pasos': (BuildContext context) => PasosdelApp(),
         'detalle': (BuildContext context) => DetallesPage(),
         //se agrego api
         'API': (BuildContext context) => ApiListaReceta()
