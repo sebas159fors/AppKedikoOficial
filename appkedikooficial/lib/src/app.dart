@@ -109,6 +109,7 @@ class MainPageState extends State<MainPage> {
         // se comento la linea 108 ya que era redundante y salia error
         // '/': (BuildContext context) => MenuInicio(),
         'Pasos': (BuildContext context) => PasosdelApp(),
+        'categoria': (BuildContext context) => CategoriaPage(),
         'detalle': (BuildContext context) => DetallesPage(),
         //se agrego api
         'API': (BuildContext context) => ApiListaReceta()
