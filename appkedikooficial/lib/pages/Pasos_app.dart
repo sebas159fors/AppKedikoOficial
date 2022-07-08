@@ -51,7 +51,15 @@ class _PasosdelAppState extends State<PasosdelApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pasos del App"),
+        title: Text(
+          "Pasos del App",
+          style: TextStyle(
+            fontSize: 19,
+            color: Colors.brown,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 227, 197, 151),
       ),
       body: Center(
         child: Stepper(
