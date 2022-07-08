@@ -13,6 +13,8 @@ import 'package:flutter/services.dart';
 import 'package:appkedikooficial/src/registro.dart';
 import 'package:appkedikooficial/src/auxiliar.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+//mision y vision
+import 'package:appkedikooficial/pages/MisionyVision.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 //import 'conection/server_controller.dart';
 //import 'package:flutter_modulo1_fake_backend/user.dart';
@@ -111,7 +113,9 @@ class MainPageState extends State<MainPage> {
         'categoria': (BuildContext context) => CategoriaPage(),
         'detalle': (BuildContext context) => DetallesPage(),
         //se agrego api
-        'API': (BuildContext context) => ApiListaReceta()
+        'API': (BuildContext context) => ApiListaReceta(),
+        //MisionyVision
+        'MisionyVision': (BuildContext context) => MisionyVision()
       },
     );
   }
