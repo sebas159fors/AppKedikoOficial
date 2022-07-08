@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:appkedikooficial/src/inicio.dart';
 import 'package:appkedikooficial/src/auxiliar.dart';
 
 class PaginaRegistro extends StatefulWidget {
