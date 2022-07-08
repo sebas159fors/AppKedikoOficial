@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:appkedikooficial/src/inicio.dart';
 import 'package:appkedikooficial/src/registro.dart';
 import 'package:appkedikooficial/src/auxiliar.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -151,14 +150,14 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.orange.shade400,
+      backgroundColor: Color.fromARGB(255, 227, 197, 151),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 120.0, bottom: 0.0),
+                padding: const EdgeInsets.only(top: 60.0, bottom: 0.0),
                 child: Text(
                   'Kediko App',
                   style: TextStyle(
@@ -168,6 +167,9 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20.0,
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 0, bottom: 50.0),
                 child: Center(
@@ -176,7 +178,7 @@ class _LoginState extends State<Login> {
                       height: 150,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0)),
-                      child: Image.asset('assets/images/auth.png')),
+                      child: Image.asset('assets/images/Logo2.jpg')),
                 ),
               ),
               Padding(
@@ -313,7 +315,10 @@ class _LoginState extends State<Login> {
                             backgroundColor: Colors.blueGrey[800],
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )))),
-              Container(
+              SizedBox(
+                height: 20.0,
+              ),
+              /* Container(
                 height: 30,
                 width: 300,
                 child: TextButton(
@@ -327,6 +332,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              */
               Container(
                 height: 60,
                 width: 350,
