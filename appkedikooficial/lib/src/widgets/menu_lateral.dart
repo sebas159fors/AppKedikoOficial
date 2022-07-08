@@ -35,11 +35,19 @@ Drawer menuLateral(context) {
               Navigator.pushNamed(context, 'API');
             },
           ),
+          ListTile(
+            leading: Icon(Icons.miscellaneous_services_outlined,
+                color: Color.fromARGB(255, 78, 49, 4)),
+            title: Text('Mision y Vision'),
+            onTap: () {
+              Navigator.pushNamed(context, 'MisionyVision');
+            },
+          ),
           AboutListTile(
             child: Text("Información del APP"),
             applicationIcon:
                 Icon(Icons.favorite, color: Color.fromARGB(255, 78, 49, 4)),
-            applicationVersion: "v 1.0.1",
+            applicationVersion: "v 1.0.2",
             applicationName: "App Kediko",
             icon: Icon(Icons.info, color: Color.fromARGB(255, 78, 49, 4)),
           ),
