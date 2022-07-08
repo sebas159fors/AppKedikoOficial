@@ -162,7 +162,7 @@ class _LoginState extends State<Login> {
                   'Kediko App',
                   style: TextStyle(
                     fontSize: 40,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 100, 71, 60),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -401,7 +401,7 @@ class _LoginState extends State<Login> {
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )))),
               Container(
-                height: 30,
+                height: 40,
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -413,8 +413,8 @@ class _LoginState extends State<Login> {
                   child: Text(
                     'Registrar',
                     style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 100, 71, 60),
                     ),
                   ),
                 ),
