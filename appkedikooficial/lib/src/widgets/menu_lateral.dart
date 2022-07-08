@@ -5,7 +5,7 @@ Drawer menuLateral(context) {
   return Drawer(
     elevation: 0.0,
     child: Container(
-      color: colorBG,
+      color: Color.fromARGB(255, 227, 197, 151),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -21,14 +21,15 @@ Drawer menuLateral(context) {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.fastfood, color: colorIconos),
+            leading:
+                Icon(Icons.fastfood, color: Color.fromARGB(255, 78, 49, 4)),
             title: Text('Pasos para usar el App'),
             onTap: () {
               Navigator.pushNamed(context, 'Pasos');
             },
           ),
           ListTile(
-            leading: Icon(Icons.api, color: colorIconos),
+            leading: Icon(Icons.api, color: Color.fromARGB(255, 78, 49, 4)),
             title: Text('Api Recetas Internacionales'),
             onTap: () {
               Navigator.pushNamed(context, 'API');
@@ -36,10 +37,11 @@ Drawer menuLateral(context) {
           ),
           AboutListTile(
             child: Text("Información del APP"),
-            applicationIcon: Icon(Icons.favorite, color: colorIconos),
+            applicationIcon:
+                Icon(Icons.favorite, color: Color.fromARGB(255, 78, 49, 4)),
             applicationVersion: "v 1.0.1",
             applicationName: "App Kediko",
-            icon: Icon(Icons.info, color: colorIconos),
+            icon: Icon(Icons.info, color: Color.fromARGB(255, 78, 49, 4)),
           ),
           //se pueden añadir mas opciones siempre especificando la ruta en routes
         ],
