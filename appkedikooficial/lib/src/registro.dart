@@ -36,7 +36,7 @@ class PaginaRegistroState extends State<PaginaRegistro> {
     return Scaffold(
       body: Container(
         child: Scaffold(
-          backgroundColor: Colors.lightBlue[900],
+          backgroundColor: Color.fromARGB(255, 227, 197, 151),
           body: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -48,7 +48,8 @@ class PaginaRegistroState extends State<PaginaRegistro> {
                       'Nuevo usuario',
                       style: TextStyle(
                         fontSize: 30,
-                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 100, 71, 60),
                       ),
                     ),
                   ),
