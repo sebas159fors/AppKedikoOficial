@@ -47,7 +47,7 @@ Drawer menuLateral(context) {
             child: Text("Información del APP"),
             applicationIcon:
                 Icon(Icons.favorite, color: Color.fromARGB(255, 78, 49, 4)),
-            applicationVersion: "v 1.0.2",
+            applicationVersion: "v 1.0.3",
             applicationName: "App Kediko",
             icon: Icon(Icons.info, color: Color.fromARGB(255, 78, 49, 4)),
           ),
