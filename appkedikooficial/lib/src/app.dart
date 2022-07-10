@@ -6,6 +6,7 @@ import 'package:appkedikooficial/pages/Pagina_inicio.dart';
 import 'package:appkedikooficial/pages/Pasos_app.dart';
 import 'package:appkedikooficial/pages/categorias.dart';
 import 'package:appkedikooficial/pages/detalle_receta.dart';
+import 'package:appkedikooficial/pages/reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
@@ -115,7 +116,8 @@ class MainPageState extends State<MainPage> {
         //se agrego api
         'API': (BuildContext context) => ApiListaReceta(),
         //MisionyVision
-        'MisionyVision': (BuildContext context) => MisionyVision()
+        'MisionyVision': (BuildContext context) => MisionyVision(),
+        'ResetPassword': (BuildContext context) => ResetPasswordPage()
       },
     );
   }
@@ -161,7 +163,7 @@ class _LoginState extends State<Login> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 60.0, bottom: 0.0),
+                padding: const EdgeInsets.only(top: 40.0, bottom: 0.0),
                 child: Text(
                   'Kediko App',
                   style: TextStyle(
@@ -172,10 +174,10 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
-                height: 20.0,
+                height: 10.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 0, bottom: 50.0),
+                padding: const EdgeInsets.only(top: 0, bottom: 35.0),
                 child: Center(
                   child: Container(
                       width: 200,
@@ -320,23 +322,24 @@ class _LoginState extends State<Login> {
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )))),
               SizedBox(
-                height: 20.0,
+                height: 5.0,
               ),
-              /* Container(
-                height: 30,
-                width: 300,
+              Container(
+                height: 60,
+                width: 200,
                 child: TextButton(
-                  onPressed: () {},
-                  child: Text(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'ResetPassword');
+                  },
+                  child: const Text(
                     '¿Olvidó la contraseña?',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 18,
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              */
               Container(
                 height: 60,
                 width: 350,
