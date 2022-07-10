@@ -37,7 +37,7 @@ dependencies:
   flutter_swiper: ^1.1.6  
   firebase_core:
   firebase_auth: ^3.0.1
-  google_sign_in: ^5.0.5  
+  google_sign_in: ^5.4.0  
   firebase_database:
   cloud_firestore:    
   #flutter_modulo1_fake_backend:
