@@ -217,6 +217,9 @@ class _LoginState extends State<Login> {
                       hintText: 'Email'),
                 ),
               ),
+              SizedBox(
+                height: 5.0,
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     left: 15.0, right: 15.0, top: 10.0, bottom: 30.0),
@@ -322,7 +325,7 @@ class _LoginState extends State<Login> {
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )))),
               SizedBox(
-                height: 5.0,
+                height: 20.0,
               ),
               Container(
                 height: 60,
@@ -340,6 +343,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              /*
               Container(
                 height: 60,
                 width: 350,
@@ -351,6 +355,7 @@ class _LoginState extends State<Login> {
                     });
                     //para acceder por google
                     //invocamos este metodo
+                    // se cambia accederGoogle por Authenticator
                     accederGoogle(context);
                   },
                   child: Padding(
@@ -392,6 +397,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+              */
               Visibility(
                   maintainSize: true,
                   maintainAnimation: true,
@@ -408,8 +414,9 @@ class _LoginState extends State<Login> {
                             valueColor: AlwaysStoppedAnimation(Colors.white),
                           )))),
               Container(
-                height: 40,
-                child: TextButton(
+                height: 50,
+                width: 250,
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -420,8 +427,22 @@ class _LoginState extends State<Login> {
                   child: Text(
                     'Registrar',
                     style: TextStyle(
-                      fontSize: 18,
-                      color: Color.fromARGB(255, 100, 71, 60),
+                      fontSize: 19,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black45,
+                    onPrimary: Colors.white,
+                    shadowColor: Colors.black45,
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      side: BorderSide(
+                        color: Colors.white70,
+                        width: 2,
+                      ),
                     ),
                   ),
                 ),
@@ -467,20 +488,21 @@ class _LoginState extends State<Login> {
     }
   }
 
+  /*
   Future<void> accederGoogle(BuildContext context) async {
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final GoogleSignIn _googleSignIn = GoogleSignIn();
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    GoogleSignIn _googleSignIn = GoogleSignIn();
 
     try {
+      //se quito los finals
       // se elimino ? que esta al costado de googleSingAuth por porblemas de version
-      final GoogleSignInAccount _googleSignInAccount =
-          await _googleSignIn.signIn();
+      GoogleSignInAccount _googleSignInAccount = await _googleSignIn.signIn();
       // se elimino ! de _googleSignInAccount por problemas de version
-      final GoogleSignInAuthentication _googleSignInAuthentication =
+      GoogleSignInAuthentication _googleSignInAuthentication =
           await _googleSignInAccount.authentication;
 
       //crear las credenciales de google, y llamamos al googleAuthProvider para verificar si esta registrado en google
-      final AuthCredential credential = GoogleAuthProvider.credential(
+      AuthCredential credential = GoogleAuthProvider.credential(
           accessToken: _googleSignInAuthentication.accessToken,
           idToken: _googleSignInAuthentication.idToken);
       // pasar la credencial con el sistema
@@ -490,7 +512,7 @@ class _LoginState extends State<Login> {
       _formKey.currentState.save();
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => new MenuInicio()));
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
       mostrarSnackBar("Lo sentimos, se produjo un error", context);
     } finally {
       setState(() {
@@ -498,7 +520,7 @@ class _LoginState extends State<Login> {
       });
     }
   }
-
+  */
   void _cambiarEstadoIndicadorProgreso() {
     visible = !visible;
   }
