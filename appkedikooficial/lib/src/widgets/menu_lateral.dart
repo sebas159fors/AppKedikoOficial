@@ -1,7 +1,13 @@
 import 'package:appkedikooficial/styles/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:appkedikooficial/src/app.dart';
 
 Drawer menuLateral(context) {
+  final User usuario = FirebaseAuth.instance.currentUser;
+  String email = "";
+  if (usuario != null) email = usuario.email;
+
   return Drawer(
     elevation: 0.0,
     child: Container(
@@ -20,6 +26,15 @@ Drawer menuLateral(context) {
               child: Text('APP KEDIKO', style: estiloTextoMenuLateral),
             ),
           ),
+
+          ListTile(
+            leading: Icon(Icons.person, color: Color.fromARGB(255, 78, 49, 4)),
+            title: Text(
+              'Bienvenido \n' + email,
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+
           ListTile(
             leading:
                 Icon(Icons.fastfood, color: Color.fromARGB(255, 78, 49, 4)),
@@ -47,10 +62,21 @@ Drawer menuLateral(context) {
             child: Text("Información del APP"),
             applicationIcon:
                 Icon(Icons.favorite, color: Color.fromARGB(255, 78, 49, 4)),
-            applicationVersion: "v 1.0.3",
+            applicationVersion: "v 1.0.4",
             applicationName: "App Kediko",
             icon: Icon(Icons.info, color: Color.fromARGB(255, 78, 49, 4)),
           ),
+
+          ListTile(
+            leading: Icon(Icons.logout, color: Color.fromARGB(255, 78, 49, 4)),
+            title: Text('Salir'),
+            onTap: () async {
+              await FirebaseAuth.instance.signOut().then((value) =>
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login())));
+            },
+          ),
+
           //se pueden añadir mas opciones siempre especificando la ruta en routes
         ],
       ),
